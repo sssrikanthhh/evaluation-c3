@@ -30,4 +30,10 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
+userSchema.methods.checkDetails = function (email, password) {
+  if (email === this.email && password === this.password) {
+    return true;
+  }
+};
+
 module.exports = mongoose.model('user', userSchema);
